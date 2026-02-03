@@ -19,7 +19,7 @@
   - [DID](./tutorials/did.md)
   - [Verifiable Credentials](./tutorials/vc.md)
   - [Asset Paywall](./tutorials/asset_paywall.md)
--[Troubleshooting](./troubleshooting.md)
+- [Troubleshooting](./troubleshooting.md)
   - [Asset Paywall](./troubleshooting/asset_registry.md)
   - [Escrow](./troubleshooting/escrow.md)
   - [Document Registry](./troubleshooting/document_registry.md)
