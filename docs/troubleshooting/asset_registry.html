@@ -166,187 +166,159 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="asset-paywall"><a class="header" href="#asset-paywall">Asset Paywall</a></h1>
-<p><em>Decentralized content monetization with onchain access control, multi-payment support, and DID-authenticated delivery.</em></p>
-<hr />
-<h2 id="overview"><a class="header" href="#overview"><strong>Overview</strong></a></h2>
-<p>The <strong>Asset Paywall</strong> service allows creators, businesses, and developers to <strong>register an digital content delivery contract</strong>.
-It is designed to support:</p>
-<ul>
-<li><strong>Digital content sales</strong> (media, PDFs, files, videos, audio, images)</li>
-<li><strong>Knowledge &amp; research monetization</strong></li>
-<li><strong>Premium memberships</strong></li>
-<li><strong>One-time or tiered access models</strong></li>
-<li><strong>Onchain payment validation</strong></li>
-<li><strong>DID-authenticated access</strong></li>
-</ul>
-<p>The Asset Paywall integrates deeply with the SafePulse ecosystem, using:</p>
-<ul>
-<li><strong>DIDs</strong> for identity/authorship</li>
-</ul>
-<p>It works fully <strong>wallet-first</strong>, ensuring users <strong>retain local control</strong> while publishers remain <strong>sovereign owners</strong> of their content.
-Issuers wont share ownership, they register an content delivery contract, customers approve the contract by payment and receive content identifier.</p>
-<hr />
-<h2 id="context--problem"><a class="header" href="#context--problem"><strong>Context &amp; Problem</strong></a></h2>
-<h3 id="the-problem"><a class="header" href="#the-problem"><strong>The Problem</strong></a></h3>
-<p>Most content monetization platforms:</p>
-<ul>
-<li>Require central hosting</li>
-<li>Control creator accounts</li>
-<li>Can censor, block, or shadowban</li>
-<li>Offer weak content protection</li>
-<li>Depend on fragile credential-based logins</li>
-</ul>
-<p>Creators need <strong>trustless payment</strong> and <strong>ownership</strong> without relying on intermediaries.</p>
-<h3 id="the-solution"><a class="header" href="#the-solution"><strong>The Solution</strong></a></h3>
-<p>SafePulse’s <strong>Asset Paywall</strong>:</p>
-<ul>
-<li>Uses <strong>smart-contract payments</strong></li>
-<li>Deliver <strong>content identifier</strong> after payment</li>
-<li>Stores protected assets via decentralized links or secure URLs</li>
-<li>Uses <strong>DID</strong>, not centralized accounts</li>
-<li>Runs entirely from the user's wallet (no platform custody)</li>
-</ul>
-<hr />
-<h2 id="key-features"><a class="header" href="#key-features"><strong>Key Features</strong></a></h2>
-<h3 id="-1-multi-asset-payments"><a class="header" href="#-1-multi-asset-payments">💸 <strong>1. Multi-Asset Payments</strong></a></h3>
-<p>Publishers can charge:</p>
-<ul>
-<li>Stablecoins</li>
-<li>Other chain-native assets (where supported)</li>
-</ul>
-<h3 id="-2-flexible-access-models"><a class="header" href="#-2-flexible-access-models">🎫 <strong>2. Flexible Access Models</strong></a></h3>
-<ul>
-<li><strong>One-time purchase means approve contract</strong></li>
-</ul>
-<h3 id="-3-onchain-proof-of-purchase"><a class="header" href="#-3-onchain-proof-of-purchase">📍 <strong>3. Onchain Proof of Purchase</strong></a></h3>
-<p>Proofs are stored as lightweight logs and anchored to the buyer’s DID.</p>
-<hr />
-<h1 id="use-cases"><a class="header" href="#use-cases"><strong>Use Cases</strong></a></h1>
-<h2 id="1-content-creators--educators"><a class="header" href="#1-content-creators--educators"><strong>1. Content Creators &amp; Educators</strong></a></h2>
-<ul>
-<li>Paid course videos</li>
-<li>Premium guides and PDFs</li>
-<li>Photography, digital art, designs</li>
-<li>Locked newsletters or research papers</li>
-</ul>
-<h2 id="3-media--journalism"><a class="header" href="#3-media--journalism"><strong>3. Media &amp; Journalism</strong></a></h2>
-<ul>
-<li>Pay-per-article</li>
-<li>Premium investigations</li>
-<li>Subscriber-only content</li>
-</ul>
-<h2 id="4-businesses--enterprises"><a class="header" href="#4-businesses--enterprises"><strong>4. Businesses &amp; Enterprises</strong></a></h2>
-<ul>
-<li>Shared documents</li>
-<li>Monetized research reports</li>
-</ul>
-<hr />
-<h1 id="step-by-step-tutorial"><a class="header" href="#step-by-step-tutorial"><strong>Step-by-Step Tutorial</strong></a></h1>
-<h2 id="a-creating-a-paywalled-asset"><a class="header" href="#a-creating-a-paywalled-asset">A. <strong>Creating a Paywalled Asset</strong></a></h2>
-<ul>
-<li>Upload or host file on an centralized or decentralized storage</li>
-</ul>
+                        <h1 id="asset-registry-troubleshooting-guide"><a class="header" href="#asset-registry-troubleshooting-guide">Asset Registry Troubleshooting Guide</a></h1>
+<p>This section covers common errors and issues specific to the Asset Registry functionality.</p>
+<h2 id="common-asset-registry-errors"><a class="header" href="#common-asset-registry-errors">Common Asset Registry Errors</a></h2>
+<h3 id="insufficient-pulse-balance"><a class="header" href="#insufficient-pulse-balance">Insufficient Pulse Balance</a></h3>
+<p><strong>Description:</strong> Account lacks the required ELYPS token balance for asset registration.<br />
+<strong>Error Message:</strong> <code>actor account is not an ELYPS holder (at least 1ELYPS required to register an asset)</code><br />
+<strong>Reason:</strong> The actor's account does not hold the minimum required 1 ELYPS token in their Pulse balance.</p>
+<p><strong>Solution:</strong></p>
 <ol>
-<li>
-<p>Open the wallet</p>
-</li>
-<li>
-<p>Tap <strong>Asset Paywall</strong></p>
-</li>
-<li>
-<p>Choose the asset type</p>
-</li>
-<li>
-<p>Choose your payment configuration</p>
-<ul>
-<li>Issuer DID</li>
-<li>Network and token</li>
-<li>Price</li>
-<li>Asset Name</li>
-</ul>
-</li>
-<li>
-<p>Confirm onchain deployment</p>
-</li>
-<li>
-<p>Asset Paywall contract is deployed</p>
-</li>
-<li>
-<p>Share the asset <strong>DID</strong></p>
-</li>
+<li>Check your current ELYPS token balance</li>
+<li>Acquire at least 1 ELYPS token before attempting asset registration</li>
+<li>Ensure the tokens are in the correct wallet/account</li>
 </ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Verify your ELYPS balance before initiating asset registration</li>
+<li>Maintain a minimum balance to cover multiple registrations</li>
+</ul>
 <hr />
-<h2 id="b-user-purchasing-access"><a class="header" href="#b-user-purchasing-access">B. <strong>User Purchasing Access</strong></a></h2>
+<h3 id="invalid-reference-link"><a class="header" href="#invalid-reference-link">Invalid Reference Link</a></h3>
+<p><strong>Description:</strong> The provided asset reference link is inaccessible or invalid.<br />
+<strong>Error Message:</strong> <code>Entered IPFS/arweave/web link reference is not available</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>The reference link does not exist</li>
+<li>The link is not reachable (connection issues)</li>
+<li>Web links: Storage provider does not support CORS</li>
+<li>IPFS links: The CID does not exist for IPFS-deployed assets</li>
+<li>Arweave links: The TX-ID does not exist or the asset is not minted yet</li>
+</ul>
+<p><strong>Solution:</strong></p>
 <ol>
-<li>Open wallet</li>
-<li>Scan Paywall QR or paste DID</li>
-<li>View content preview + price</li>
-<li>Tap <strong>Purchase</strong></li>
-<li>Wallet executes payment contract</li>
-<li>On success, wallet receives access token bound to DID</li>
-<li>Content unlocks automatically</li>
+<li><strong>Verify link accessibility:</strong> Test the link in a browser</li>
+<li><strong>IPFS assets:</strong> Confirm the CID exists and is pinned</li>
+<li><strong>Arweave assets:</strong> Verify the TX-ID exists and the asset is minted</li>
+<li><strong>Web links:</strong> Ensure CORS is enabled on the storage provider</li>
+<li><strong>Check network connectivity:</strong> Ensure your connection can reach the storage network</li>
 </ol>
-<hr />
-<h2 id="c-managing-asset"><a class="header" href="#c-managing-asset">C. <strong>Managing Asset</strong></a></h2>
-<p>At Contract organization there is options for freeze/unfreeze asset, collect payments or delete asset.</p>
-<hr />
-<h1 id="real-world-examples"><a class="header" href="#real-world-examples"><strong>Real-World Examples</strong></a></h1>
-<h3 id="example-1--paid-pdf-guide"><a class="header" href="#example-1--paid-pdf-guide">Example 1 — Paid PDF Guide</a></h3>
-<p>A researcher sells a 200-page PDF on IPFS via paywall.
-After paying, users get a DID-bound decryption key.</p>
-<h3 id="example-2--video-course"><a class="header" href="#example-2--video-course">Example 2 — Video Course</a></h3>
-<p>Teacher uploads course videos behind a paywall with 30-day access.</p>
-<h3 id="example-3--premium-article"><a class="header" href="#example-3--premium-article">Example 3 — Premium Article</a></h3>
-<p>A journalist publishes a pay-per-article story with a one-time purchase.</p>
-<h3 id="example-4--photography-pack"><a class="header" href="#example-4--photography-pack">Example 4 — Photography Pack</a></h3>
-<p>A designer distributes a set of high-resolution files, protected by the paywall.</p>
-<hr />
-<h1 id="benefits"><a class="header" href="#benefits"><strong>Benefits</strong></a></h1>
-<h3 id="for-creators"><a class="header" href="#for-creators">For Creators</a></h3>
+<p><strong>Prevention:</strong></p>
 <ul>
-<li>1% platform fees</li>
-<li>No censorship</li>
-<li>Automated payments</li>
-<li>Privacy first, no KYC</li>
-</ul>
-<h3 id="for-users"><a class="header" href="#for-users">For Users</a></h3>
-<ul>
-<li>No centralized accounts</li>
-<li>Portable access</li>
-<li>Verifiable proof of purchase</li>
-<li>Zero-knowledge access control</li>
-</ul>
-<h3 id="for-businesses"><a class="header" href="#for-businesses">For Businesses</a></h3>
-<ul>
-<li>Internal distribution</li>
-<li>Contract-based licensing</li>
-<li>Easy integration</li>
+<li>Test all links before submission</li>
+<li>Use reliable storage providers with CORS support</li>
+<li>Confirm deployment before registration</li>
 </ul>
 <hr />
-<h1 id="drawbacks--considerations"><a class="header" href="#drawbacks--considerations"><strong>Drawbacks / Considerations</strong></a></h1>
+<h3 id="asset-not-found"><a class="header" href="#asset-not-found">Asset Not Found</a></h3>
+<p><strong>Description:</strong> Attempting to access a non-existent or unregistered asset.<br />
+<strong>Error Message:</strong> <code>no registered asset or wrong asset did</code><br />
+<strong>Reasons:</strong></p>
 <ul>
-<li>Requires gas fees on deployment</li>
-<li>Content hosting costs depend on storage provider</li>
-<li>Price changes may require redeployment (contract-defined)</li>
-<li>Users must protect local wallet keys for access retention</li>
+<li>Asset does not exist</li>
+<li>Asset is not registered in the system</li>
+<li>Asset was reported and removed from the database</li>
+<li>Incorrect asset DID (Decentralized Identifier) provided</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Verify the asset DID is correct</li>
+<li>Check if the asset was previously registered</li>
+<li>Contact support if the asset was reported and needs review</li>
+<li>Attempt to search for the asset using alternative identifiers</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Copy asset DIDs accurately</li>
+<li>Keep records of registered asset DIDs</li>
+<li>Monitor asset status regularly</li>
 </ul>
 <hr />
-<h1 id="best-practices"><a class="header" href="#best-practices"><strong>Best Practices</strong></a></h1>
+<h3 id="asset-frozen---general"><a class="header" href="#asset-frozen---general">Asset Frozen - General</a></h3>
+<p><strong>Description:</strong> Asset operations are blocked due to frozen status.<br />
+<strong>Error Message:</strong> <code>'Asset frozen already'</code><br />
+<strong>Reason:</strong> The asset has been frozen by its owner and cannot undergo certain operations.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>For asset owners:</strong> Unfreeze the asset through the owner control panel</li>
+<li><strong>For other users:</strong> Contact the asset owner to request unfreezing</li>
+<li>Wait for the asset owner to change the asset status</li>
+</ol>
+<p><strong>Prevention:</strong></p>
 <ul>
-<li><strong>Always encrypt sensitive files</strong> before uploading</li>
-<li>Offer <strong>low-cost preview content</strong> to improve user trust</li>
+<li>Asset owners: Document freezing/unfreezing procedures</li>
+<li>Users: Check asset status before attempting operations</li>
+</ul>
+<hr />
+<h3 id="asset-frozen---withdrawal-restriction"><a class="header" href="#asset-frozen---withdrawal-restriction">Asset Frozen - Withdrawal Restriction</a></h3>
+<p><strong>Description:</strong> Cannot withdraw funds from a frozen asset.<br />
+<strong>Error Message:</strong> <code>'Asset frozen already' on withdraw</code><br />
+<strong>Reason:</strong> Frozen assets have restricted financial operations, including fund withdrawals.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Asset owner must:</strong> Unfreeze the asset through owner controls</li>
+<li><strong>After unfreezing:</strong> Proceed with withdrawal as normal</li>
+<li>Do not attempt withdrawal until asset status changes to unfrozen</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Complete all withdrawals before freezing assets</li>
+<li>Maintain clear asset status documentation</li>
+<li>Plan financial operations around asset status changes</li>
+</ul>
+<hr />
+<h3 id="insufficient-allowance-for-purchase"><a class="header" href="#insufficient-allowance-for-purchase">Insufficient Allowance for Purchase</a></h3>
+<p><strong>Description:</strong> Stablecoin purchase approval is insufficient for asset purchase.<br />
+<strong>Error Message:</strong> <code>'Not enough allowance, increase allowance for purchase'</code><br />
+<strong>Reason:</strong> Asset purchases using stablecoins require pre-approval (allowance) from the buyer. The current allowance is insufficient for the purchase amount.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Check current allowance:</strong> View your approved stablecoin amount</li>
+<li><strong>Increase allowance:</strong> Approve a higher amount through your wallet
+<ul>
+<li>Connect your wallet</li>
+<li>Navigate to token approvals</li>
+<li>Increase allowance for the stablecoin used in purchases</li>
+</ul>
+</li>
+<li><strong>Retry purchase:</strong> After allowance update, attempt purchase again</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Set higher allowances for frequent purchases</li>
+<li>Check allowance before initiating purchases</li>
+<li>Use wallet features to manage token approvals efficiently</li>
+</ul>
+<hr />
+<h2 id="quick-reference-table"><a class="header" href="#quick-reference-table">Quick Reference Table</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Who Can Fix</th><th>Action Required</th></tr></thead><tbody>
+<tr><td>Insufficient Pulse Balance</td><td>Account Owner</td><td>Acquire 1+ ELYPS tokens</td></tr>
+<tr><td>Invalid Reference Link</td><td>Asset Submitter</td><td>Fix/verify storage link</td></tr>
+<tr><td>Asset Not Found</td><td>System/Support</td><td>Verify DID or contact support</td></tr>
+<tr><td>Asset Frozen (General)</td><td>Asset Owner</td><td>Unfreeze asset</td></tr>
+<tr><td>Asset Frozen (Withdrawal)</td><td>Asset Owner</td><td>Unfreeze then withdraw</td></tr>
+<tr><td>Insufficient Allowance</td><td>Buyer</td><td>Increase stablecoin allowance</td></tr>
+</tbody></table>
+</div>
+<h2 id="support-contact"><a class="header" href="#support-contact">Support Contact</a></h2>
+<p>If issues persist after following these steps, contact support with:</p>
+<ul>
+<li>Error message</li>
+<li>Asset DID (if applicable)</li>
+<li>Transaction hash</li>
+<li>Steps already attempted</li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../tutorials/vc.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../tutorials/asset_paywall.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../troubleshooting/asset_registry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../troubleshooting/escrow.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -356,11 +328,11 @@ After paying, users get a DID-bound decryption key.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../tutorials/vc.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../tutorials/asset_paywall.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../troubleshooting/asset_registry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../troubleshooting/escrow.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

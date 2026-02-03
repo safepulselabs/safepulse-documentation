@@ -2335,6 +2335,535 @@ After paying, users get a DID-bound decryption key.</p>
 <li><strong>Always encrypt sensitive files</strong> before uploading</li>
 <li>Offer <strong>low-cost preview content</strong> to improve user trust</li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="asset-registry-troubleshooting-guide"><a class="header" href="#asset-registry-troubleshooting-guide">Asset Registry Troubleshooting Guide</a></h1>
+<p>This section covers common errors and issues specific to the Asset Registry functionality.</p>
+<h2 id="common-asset-registry-errors"><a class="header" href="#common-asset-registry-errors">Common Asset Registry Errors</a></h2>
+<h3 id="insufficient-pulse-balance"><a class="header" href="#insufficient-pulse-balance">Insufficient Pulse Balance</a></h3>
+<p><strong>Description:</strong> Account lacks the required ELYPS token balance for asset registration.<br />
+<strong>Error Message:</strong> <code>actor account is not an ELYPS holder (at least 1ELYPS required to register an asset)</code><br />
+<strong>Reason:</strong> The actor's account does not hold the minimum required 1 ELYPS token in their Pulse balance.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Check your current ELYPS token balance</li>
+<li>Acquire at least 1 ELYPS token before attempting asset registration</li>
+<li>Ensure the tokens are in the correct wallet/account</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Verify your ELYPS balance before initiating asset registration</li>
+<li>Maintain a minimum balance to cover multiple registrations</li>
+</ul>
+<hr />
+<h3 id="invalid-reference-link"><a class="header" href="#invalid-reference-link">Invalid Reference Link</a></h3>
+<p><strong>Description:</strong> The provided asset reference link is inaccessible or invalid.<br />
+<strong>Error Message:</strong> <code>Entered IPFS/arweave/web link reference is not available</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>The reference link does not exist</li>
+<li>The link is not reachable (connection issues)</li>
+<li>Web links: Storage provider does not support CORS</li>
+<li>IPFS links: The CID does not exist for IPFS-deployed assets</li>
+<li>Arweave links: The TX-ID does not exist or the asset is not minted yet</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Verify link accessibility:</strong> Test the link in a browser</li>
+<li><strong>IPFS assets:</strong> Confirm the CID exists and is pinned</li>
+<li><strong>Arweave assets:</strong> Verify the TX-ID exists and the asset is minted</li>
+<li><strong>Web links:</strong> Ensure CORS is enabled on the storage provider</li>
+<li><strong>Check network connectivity:</strong> Ensure your connection can reach the storage network</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Test all links before submission</li>
+<li>Use reliable storage providers with CORS support</li>
+<li>Confirm deployment before registration</li>
+</ul>
+<hr />
+<h3 id="asset-not-found"><a class="header" href="#asset-not-found">Asset Not Found</a></h3>
+<p><strong>Description:</strong> Attempting to access a non-existent or unregistered asset.<br />
+<strong>Error Message:</strong> <code>no registered asset or wrong asset did</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>Asset does not exist</li>
+<li>Asset is not registered in the system</li>
+<li>Asset was reported and removed from the database</li>
+<li>Incorrect asset DID (Decentralized Identifier) provided</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li>Verify the asset DID is correct</li>
+<li>Check if the asset was previously registered</li>
+<li>Contact support if the asset was reported and needs review</li>
+<li>Attempt to search for the asset using alternative identifiers</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Copy asset DIDs accurately</li>
+<li>Keep records of registered asset DIDs</li>
+<li>Monitor asset status regularly</li>
+</ul>
+<hr />
+<h3 id="asset-frozen---general"><a class="header" href="#asset-frozen---general">Asset Frozen - General</a></h3>
+<p><strong>Description:</strong> Asset operations are blocked due to frozen status.<br />
+<strong>Error Message:</strong> <code>'Asset frozen already'</code><br />
+<strong>Reason:</strong> The asset has been frozen by its owner and cannot undergo certain operations.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>For asset owners:</strong> Unfreeze the asset through the owner control panel</li>
+<li><strong>For other users:</strong> Contact the asset owner to request unfreezing</li>
+<li>Wait for the asset owner to change the asset status</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Asset owners: Document freezing/unfreezing procedures</li>
+<li>Users: Check asset status before attempting operations</li>
+</ul>
+<hr />
+<h3 id="asset-frozen---withdrawal-restriction"><a class="header" href="#asset-frozen---withdrawal-restriction">Asset Frozen - Withdrawal Restriction</a></h3>
+<p><strong>Description:</strong> Cannot withdraw funds from a frozen asset.<br />
+<strong>Error Message:</strong> <code>'Asset frozen already' on withdraw</code><br />
+<strong>Reason:</strong> Frozen assets have restricted financial operations, including fund withdrawals.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Asset owner must:</strong> Unfreeze the asset through owner controls</li>
+<li><strong>After unfreezing:</strong> Proceed with withdrawal as normal</li>
+<li>Do not attempt withdrawal until asset status changes to unfrozen</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Complete all withdrawals before freezing assets</li>
+<li>Maintain clear asset status documentation</li>
+<li>Plan financial operations around asset status changes</li>
+</ul>
+<hr />
+<h3 id="insufficient-allowance-for-purchase"><a class="header" href="#insufficient-allowance-for-purchase">Insufficient Allowance for Purchase</a></h3>
+<p><strong>Description:</strong> Stablecoin purchase approval is insufficient for asset purchase.<br />
+<strong>Error Message:</strong> <code>'Not enough allowance, increase allowance for purchase'</code><br />
+<strong>Reason:</strong> Asset purchases using stablecoins require pre-approval (allowance) from the buyer. The current allowance is insufficient for the purchase amount.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Check current allowance:</strong> View your approved stablecoin amount</li>
+<li><strong>Increase allowance:</strong> Approve a higher amount through your wallet
+<ul>
+<li>Connect your wallet</li>
+<li>Navigate to token approvals</li>
+<li>Increase allowance for the stablecoin used in purchases</li>
+</ul>
+</li>
+<li><strong>Retry purchase:</strong> After allowance update, attempt purchase again</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Set higher allowances for frequent purchases</li>
+<li>Check allowance before initiating purchases</li>
+<li>Use wallet features to manage token approvals efficiently</li>
+</ul>
+<hr />
+<h2 id="quick-reference-table"><a class="header" href="#quick-reference-table">Quick Reference Table</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Who Can Fix</th><th>Action Required</th></tr></thead><tbody>
+<tr><td>Insufficient Pulse Balance</td><td>Account Owner</td><td>Acquire 1+ ELYPS tokens</td></tr>
+<tr><td>Invalid Reference Link</td><td>Asset Submitter</td><td>Fix/verify storage link</td></tr>
+<tr><td>Asset Not Found</td><td>System/Support</td><td>Verify DID or contact support</td></tr>
+<tr><td>Asset Frozen (General)</td><td>Asset Owner</td><td>Unfreeze asset</td></tr>
+<tr><td>Asset Frozen (Withdrawal)</td><td>Asset Owner</td><td>Unfreeze then withdraw</td></tr>
+<tr><td>Insufficient Allowance</td><td>Buyer</td><td>Increase stablecoin allowance</td></tr>
+</tbody></table>
+</div>
+<h2 id="support-contact"><a class="header" href="#support-contact">Support Contact</a></h2>
+<p>If issues persist after following these steps, contact support with:</p>
+<ul>
+<li>Error message</li>
+<li>Asset DID (if applicable)</li>
+<li>Transaction hash</li>
+<li>Steps already attempted</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="escrow-troubleshooting-guide"><a class="header" href="#escrow-troubleshooting-guide">Escrow Troubleshooting Guide</a></h1>
+<p>This section covers common errors and issues specific to the Escrow functionality.</p>
+<h2 id="common-escrow-errors"><a class="header" href="#common-escrow-errors">Common Escrow Errors</a></h2>
+<h3 id="insufficient-balance"><a class="header" href="#insufficient-balance">Insufficient Balance</a></h3>
+<p><strong>Description:</strong> Account lacks sufficient funds for escrow operations.<br />
+<strong>Error Message:</strong> <code>'insufficient balance'</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>Actor/depositor/user account does not have enough network native token to cover deposit fees</li>
+<li>Account does not have enough balance to cover the escrow deposit amount</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Check native token balance:</strong> Verify you have enough network native token for gas/deposit fees</li>
+<li><strong>Check deposit amount:</strong> Ensure your account has sufficient funds for the full escrow amount</li>
+<li><strong>Top up if needed:</strong> Add more native tokens for fees and/or deposit funds to your account</li>
+<li><strong>Adjust deposit amount:</strong> Consider reducing the escrow amount if balance is insufficient</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Monitor account balances regularly</li>
+<li>Keep reserve funds for transaction fees</li>
+<li>Calculate total required amount (deposit + fees) before initiating</li>
+</ul>
+<hr />
+<h3 id="insufficient-token-allowance"><a class="header" href="#insufficient-token-allowance">Insufficient Token Allowance</a></h3>
+<p><strong>Description:</strong> Stablecoin transfer permission is insufficient for escrow deposit.<br />
+<strong>Error Message:</strong> <code>'insufficient token allowance'</code><br />
+<strong>Reason:</strong> User is attempting to deposit stablecoin into escrow but hasn't granted the escrow contract permission to transfer the specified amount. The allowance must be set before deposit.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Connect wallet:</strong> Ensure your wallet is connected to the platform</li>
+<li><strong>Approve token transfer:</strong> Navigate to token approvals in your wallet</li>
+<li><strong>Set allowance:</strong> Grant the escrow contract permission to transfer the desired stablecoin amount</li>
+<li><strong>Retry deposit:</strong> After approval is confirmed, attempt the escrow deposit again</li>
+<li><strong>Note:</strong> Some wallets require separate approval and deposit transactions</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Set generous allowances for frequent escrow users</li>
+<li>Complete token approvals before initiating deposits</li>
+<li>Use wallet features to manage and track token approvals</li>
+</ul>
+<hr />
+<h3 id="deposit-duration-exceeded"><a class="header" href="#deposit-duration-exceeded">Deposit Duration Exceeded</a></h3>
+<p><strong>Description:</strong> Attempting to set an escrow duration beyond allowed limits.<br />
+<strong>Error Message:</strong> <code>'Deposit duration can not be more than 93 days'</code><br />
+<strong>Reason:</strong> The system enforces a maximum escrow duration limit of 93 days for all deposits.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Review duration:</strong> Check your specified deposit duration</li>
+<li><strong>Reduce duration:</strong> Adjust the duration to 93 days or less</li>
+<li><strong>Consider alternatives:</strong> For longer-term arrangements, use multiple shorter escrows or explore other options</li>
+<li><strong>Retry with corrected duration:</strong> Submit the deposit with the adjusted timeframe</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Always verify duration limits before setting escrow terms</li>
+<li>Plan escrow periods within the 93-day limit</li>
+<li>Document longer-term agreements separately</li>
+</ul>
+<hr />
+<h3 id="deposit-transaction-failed"><a class="header" href="#deposit-transaction-failed">Deposit Transaction Failed</a></h3>
+<p><strong>Description:</strong> Escrow deposit transaction did not process successfully.<br />
+<strong>Error Message:</strong> <code>'Deposit failed: transaction didnt sent'</code><br />
+<strong>Reason:</strong> The transaction was not successfully sent to the network or failed during processing.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Check network connection:</strong> Ensure stable internet and blockchain network access</li>
+<li><strong>Verify wallet status:</strong> Confirm wallet is properly connected and unlocked</li>
+<li><strong>Review gas fees:</strong> Ensure sufficient funds for gas/transaction fees</li>
+<li><strong>Check for pending transactions:</strong> Clear or cancel any stuck transactions</li>
+<li><strong>Retry transaction:</strong> Attempt the deposit again</li>
+<li><strong>Contact support if persistent:</strong> If failures continue, provide transaction hash to support</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Use reliable internet connections</li>
+<li>Monitor network congestion and gas prices</li>
+<li>Keep wallet software updated</li>
+</ul>
+<hr />
+<h3 id="deposit-not-yet-released"><a class="header" href="#deposit-not-yet-released">Deposit Not Yet Released</a></h3>
+<p><strong>Description:</strong> Attempting to access funds before release conditions are met.<br />
+<strong>Error Message:</strong> <code>'Not released yet'</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>Deposit escrow status is not yet released by the payer</li>
+<li>5-day post-expiration period has not yet passed</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Check deposit status:</strong> Verify current escrow status and conditions</li>
+<li><strong>For payees:</strong> Wait for payer to release funds or for expiration + 5 days</li>
+<li><strong>For payers:</strong> Release funds if conditions are met</li>
+<li><strong>Monitor timeline:</strong> Track expiration date and post-expiration period</li>
+<li><strong>After 5 days post-expiration:</strong> Funds become accessible to payee</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Set clear release terms upfront</li>
+<li>Monitor escrow timelines</li>
+<li>Communicate with counterparty about release timing</li>
+</ul>
+<hr />
+<h3 id="deposit-frozen-due-to-dispute"><a class="header" href="#deposit-frozen-due-to-dispute">Deposit Frozen Due to Dispute</a></h3>
+<p><strong>Description:</strong> Escrow funds are locked due to a raised dispute.<br />
+<strong>Error Message:</strong> <code>'Frozen already'</code><br />
+<strong>Reason:</strong> Payer has raised a dispute, freezing the deposit. In this state:</p>
+<ul>
+<li>Payer cannot rollback the deposit</li>
+<li>Payee cannot withdraw funds</li>
+<li>Only specific actions are allowed to resolve the dispute</li>
+</ul>
+<p><strong>Resolution Paths:</strong></p>
+<ol>
+<li><strong>Payee can cancel:</strong> Allows payer to rollback funds</li>
+<li><strong>Payer can complete:</strong> Allows payee to withdraw funds</li>
+<li><strong>Wait for resolution:</strong> If neither action is taken, funds remain frozen</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Identify dispute reason:</strong> Check why dispute was raised</li>
+<li><strong>Communicate:</strong> Discuss resolution with counterparty</li>
+<li><strong>Choose resolution path:</strong>
+<ul>
+<li><strong>If payee agrees to cancel:</strong> Payee cancels → Payer rolls back</li>
+<li><strong>If payer agrees to release:</strong> Payer completes → Payee withdraws</li>
+</ul>
+</li>
+<li><strong>Document agreement:</strong> Keep records of dispute resolution</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Establish clear terms before escrow</li>
+<li>Maintain open communication</li>
+<li>Document deliverables and expectations</li>
+</ul>
+<hr />
+<h3 id="deposit-already-released"><a class="header" href="#deposit-already-released">Deposit Already Released</a></h3>
+<p><strong>Description:</strong> Attempting to perform actions on an already-released escrow.<br />
+<strong>Error Message:</strong> <code>'Released already'</code><br />
+<strong>Reason:</strong> The escrow deposit status is already marked as released. No further actions can be performed on released escrows.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Verify status:</strong> Confirm the escrow is indeed released</li>
+<li><strong>Check transaction history:</strong> Look for release transactions</li>
+<li><strong>For payees:</strong> Funds should be available for withdrawal if not already withdrawn</li>
+<li><strong>For payers:</strong> No further action needed; release is complete</li>
+<li><strong>If erroneous:</strong> Contact support with transaction details</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Track escrow status changes</li>
+<li>Set up notifications for status updates</li>
+<li>Document all escrow milestones</li>
+</ul>
+<hr />
+<h2 id="escrow-status-flow-reference"><a class="header" href="#escrow-status-flow-reference">Escrow Status Flow Reference</a></h2>
+<pre><code>Deposit Created → Active → [Dispute Raised → Frozen] → Released → Completed
+                        ↘ [No Dispute] → Released → Completed
+</code></pre>
+<h2 id="quick-action-guide"><a class="header" href="#quick-action-guide">Quick Action Guide</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Role</th><th>Immediate Action</th><th>Resolution Path</th></tr></thead><tbody>
+<tr><td>Insufficient Balance</td><td>Any</td><td>Check balances</td><td>Add funds, reduce amount</td></tr>
+<tr><td>Insufficient Allowance</td><td>Depositor</td><td>Approve tokens</td><td>Set allowance, retry</td></tr>
+<tr><td>Duration &gt; 93 days</td><td>Depositor</td><td>Reduce duration</td><td>Set ≤93 days, retry</td></tr>
+<tr><td>Deposit Failed</td><td>Depositor</td><td>Check connection</td><td>Retry, check gas</td></tr>
+<tr><td>Not Released Yet</td><td>Payee</td><td>Wait</td><td>Payer release or wait 5 days post-expiry</td></tr>
+<tr><td>Frozen Already</td><td>Either</td><td>Communicate</td><td>Payee cancel OR Payer complete</td></tr>
+<tr><td>Released Already</td><td>Either</td><td>Verify status</td><td>Withdraw (payee) or close (payer)</td></tr>
+</tbody></table>
+</div>
+<h2 id="dispute-resolution-matrix"><a class="header" href="#dispute-resolution-matrix">Dispute Resolution Matrix</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Action</th><th>Who Can Do</th><th>Result</th></tr></thead><tbody>
+<tr><td>Raise Dispute</td><td>Payer Only</td><td>Freezes funds</td></tr>
+<tr><td>Cancel Deposit</td><td>Payee Only</td><td>Allows payer rollback</td></tr>
+<tr><td>Complete Deposit</td><td>Payer Only</td><td>Allows payee withdrawal</td></tr>
+<tr><td>Withdraw Funds</td><td>Payee Only</td><td>After release/completion</td></tr>
+<tr><td>Rollback Funds</td><td>Payer Only</td><td>After payee cancellation</td></tr>
+</tbody></table>
+</div>
+<h2 id="support-information"><a class="header" href="#support-information">Support Information</a></h2>
+<p>When contacting support about escrow issues, provide:</p>
+<ul>
+<li>Escrow contract address</li>
+<li>Deposit transaction hash</li>
+<li>Wallet addresses (payer/payee)</li>
+<li>Error screenshots</li>
+<li>Steps already attempted</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="document-registry-troubleshooting-guide"><a class="header" href="#document-registry-troubleshooting-guide">Document Registry Troubleshooting Guide</a></h1>
+<p>This section covers common errors and issues specific to the Document Registry functionality.</p>
+<h2 id="common-document-registry-errors"><a class="header" href="#common-document-registry-errors">Common Document Registry Errors</a></h2>
+<h3 id="invalid-reference-link-1"><a class="header" href="#invalid-reference-link-1">Invalid Reference Link</a></h3>
+<p><strong>Description:</strong> The provided document reference link is inaccessible or invalid.<br />
+<strong>Error Message:</strong> <code>Entered IPFS/arweave/web link reference is not available</code><br />
+<strong>Reasons:</strong></p>
+<ul>
+<li>The reference link does not exist</li>
+<li>The link is not reachable (connection issues)</li>
+<li>Web links: Storage provider does not support CORS</li>
+<li>IPFS links: The CID does not exist for IPFS-deployed documents</li>
+<li>Arweave links: The TX-ID does not exist or the document is not minted yet</li>
+</ul>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Verify link accessibility:</strong> Test the link in a browser or network tool</li>
+<li><strong>IPFS documents:</strong> Confirm the CID exists and is pinned to the network</li>
+<li><strong>Arweave documents:</strong> Verify the TX-ID exists and the document is fully minted</li>
+<li><strong>Web links:</strong> Ensure the storage provider supports CORS</li>
+<li><strong>Check network access:</strong> Confirm your connection can reach the storage network</li>
+<li><strong>Re-upload if necessary:</strong> Upload the document to a reliable storage provider</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Test all storage links before registration</li>
+<li>Use decentralized storage with high availability (IPFS/Arweave)</li>
+<li>For web links, verify CORS support with the provider</li>
+<li>Confirm deployment completion before registration</li>
+</ul>
+<hr />
+<h3 id="document-loading-failed"><a class="header" href="#document-loading-failed">Document Loading Failed</a></h3>
+<p><strong>Description:</strong> Unable to load or verify a registered document.<br />
+<strong>Error Message:</strong> <code>Document loading failed: no registered document or wrong document did</code><br />
+<strong>Causes:</strong></p>
+<ol>
+<li><strong>Resource errors:</strong> Link decryption, proof claims, or data resolution failures</li>
+<li><strong>Broken user data:</strong> Users editing or removing information from their registered document DID</li>
+<li><strong>Changed files:</strong> Users modifying the original file after registration (common with web links)</li>
+<li><strong>Missing key information:</strong> Critical data removed from the document DID</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Verify DID completeness:</strong> Check that the document DID contains all required fields</li>
+<li><strong>Check file integrity:</strong> Ensure the original file hasn't been modified</li>
+<li><strong>Re-register if needed:</strong> If the file was changed, register a new document</li>
+<li><strong>Contact issuer:</strong> For third-party documents, request a re-issue</li>
+<li><strong>For web links:</strong> Verify the linked file matches the originally registered version</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Never modify files after registration</li>
+<li>Store immutable copies on IPFS or Arweave</li>
+<li>Keep backup of original document DIDs</li>
+<li>Use version control for document updates</li>
+</ul>
+<hr />
+<h3 id="document-status-change-permissions"><a class="header" href="#document-status-change-permissions">Document Status Change Permissions</a></h3>
+<p><strong>Description:</strong> Unauthorized attempt to change document status.<br />
+<strong>Error Messages:</strong> <code>Only issuer can revoke/validate/suspend document</code><br />
+<strong>Reason:</strong> Only the original issuer of a document has permission to change its status (revoke, validate, or suspend). These are three separate but related permission errors.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Identify the issuer:</strong> Determine who originally issued the document</li>
+<li><strong>Contact issuer:</strong> Request the status change from the authorized party</li>
+<li><strong>Provide justification:</strong> Explain why the status change is needed</li>
+<li><strong>Wait for action:</strong> Allow the issuer to perform the status change</li>
+<li><strong>For self-issued documents:</strong> Ensure you're using the correct issuer account/wallet</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Document issuer relationships clearly</li>
+<li>Establish status change protocols with issuers</li>
+<li>Maintain contact information for document issuers</li>
+<li>Consider multi-signature setups for important documents</li>
+</ul>
+<hr />
+<h3 id="unsupported-reference-did-method"><a class="header" href="#unsupported-reference-did-method">Unsupported Reference DID Method</a></h3>
+<p><strong>Description:</strong> Document reference deciphering process fails.<br />
+<strong>Error Message:</strong> <code>unsupported reference DID method</code><br />
+<strong>Reason:</strong> The cipher key in the document DID has been altered by users, breaking the deciphering process and preventing correct plain data resolution.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Do not modify DIDs:</strong> Document DIDs should never be manually edited</li>
+<li><strong>Use original DID:</strong> Retrieve the original, unmodified document DID</li>
+<li><strong>Re-register:</strong> If the DID was altered, register a new document</li>
+<li><strong>Check generation tools:</strong> Ensure DID generation tools are functioning correctly</li>
+<li><strong>Contact support:</strong> If the error appears without user modification</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Never manually edit or alter document DIDs</li>
+<li>Use official DID generation tools</li>
+<li>Store DIDs in secure, unmodifiable formats</li>
+<li>Implement checksums for DID validation</li>
+</ul>
+<hr />
+<h3 id="invalid-did-delegate"><a class="header" href="#invalid-did-delegate">Invalid DID Delegate</a></h3>
+<p><strong>Description:</strong> Actor lacks proper delegation permissions.<br />
+<strong>Error Message:</strong> <code>Invalid DID delegate</code><br />
+<strong>Reasons:</strong></p>
+<ol>
+<li>Actor key is not an active delegate of the entered Ethereum DID (ERC1056)</li>
+<li>Actor is an active delegate but not an <code>assertionMethod</code> delegate for that DID</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Verify delegation status:</strong> Check if your key is properly delegated</li>
+<li><strong>Check delegate type:</strong> Ensure you're an <code>assertionMethod</code> delegate</li>
+<li><strong>Request proper delegation:</strong> Contact the DID controller for correct delegation</li>
+<li><strong>Use correct key:</strong> Switch to a properly delegated key if available</li>
+<li><strong>Update delegation:</strong> If permissions changed, request updated delegation</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Maintain proper delegation records</li>
+<li>Regularly verify delegate status</li>
+<li>Document delegation hierarchies</li>
+<li>Use delegation management tools</li>
+</ul>
+<hr />
+<h3 id="unmatched-reference-hash"><a class="header" href="#unmatched-reference-hash">Unmatched Reference Hash</a></h3>
+<p><strong>Description:</strong> Document file verification fails due to content changes.<br />
+<strong>Error Message:</strong> <code>Unmatched reference hash</code><br />
+<strong>Reason:</strong> The user has changed the original file after registration, causing hash verification to fail. This is particularly common with web link resources where users can modify the linked file.</p>
+<p><strong>Solution:</strong></p>
+<ol>
+<li><strong>Restore original file:</strong> Revert to the exact file used during registration</li>
+<li><strong>Check file integrity:</strong> Compare current file hash with registered hash</li>
+<li><strong>For web links:</strong> Ensure the linked file hasn't been updated or replaced</li>
+<li><strong>Re-register:</strong> If the file must be changed, register a new document</li>
+<li><strong>Use immutable storage:</strong> Switch to IPFS or Arweave to prevent modifications</li>
+</ol>
+<p><strong>Prevention:</strong></p>
+<ul>
+<li>Use immutable storage (IPFS/Arweave) for important documents</li>
+<li>Implement version control instead of file replacement</li>
+<li>Document file hashes at registration time</li>
+<li>Use checksums for file integrity verification</li>
+</ul>
+<hr />
+<h2 id="document-lifecycle-statuses"><a class="header" href="#document-lifecycle-statuses">Document Lifecycle Statuses</a></h2>
+<pre><code>Created → Registered → [Validated/Suspended/Revoked] → Archived
+</code></pre>
+<p><strong>Valid Status Changes:</strong></p>
+<ul>
+<li><strong>Issuer only:</strong> Revoke, Validate, Suspend</li>
+<li><strong>Owner/Delegate:</strong> Update metadata (with proper permissions)</li>
+<li><strong>Anyone:</strong> Verify (read-only)</li>
+</ul>
+<hr />
+<h2 id="quick-resolution-guide"><a class="header" href="#quick-resolution-guide">Quick Resolution Guide</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Error</th><th>Likely Cause</th><th>Immediate Action</th><th>Long-term Prevention</th></tr></thead><tbody>
+<tr><td>Invalid Reference Link</td><td>Broken link, CORS issue</td><td>Test link, check storage</td><td>Use decentralized storage</td></tr>
+<tr><td>Document Loading Failed</td><td>Modified file/DID</td><td>Verify original files</td><td>Immutable storage</td></tr>
+<tr><td>Status Change Denied</td><td>Wrong actor</td><td>Contact issuer</td><td>Document issuer roles</td></tr>
+<tr><td>Unsupported DID Method</td><td>Modified DID</td><td>Use original DID</td><td>Never edit DIDs</td></tr>
+<tr><td>Invalid DID Delegate</td><td>Missing permissions</td><td>Request delegation</td><td>Maintain delegation records</td></tr>
+<tr><td>Unmatched Hash</td><td>File changed</td><td>Restore original</td><td>Hash verification systems</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="best-practices-for-document-management"><a class="header" href="#best-practices-for-document-management">Best Practices for Document Management</a></h2>
+<h3 id="storage-recommendations"><a class="header" href="#storage-recommendations">Storage Recommendations</a></h3>
+<ol>
+<li><strong>For critical documents:</strong> Use IPFS or Arweave (immutable)</li>
+<li><strong>For frequently updated documents:</strong> Implement versioning systems</li>
+<li><strong>Avoid:</strong> Modifiable web links for important documents</li>
+<li><strong>Always:</strong> Store original file hashes and DIDs securely</li>
+</ol>
+<h3 id="did-management"><a class="header" href="#did-management">DID Management</a></h3>
+<ol>
+<li><strong>Never</strong> manually edit DIDs</li>
+<li><strong>Always</strong> use official generation tools</li>
+<li><strong>Store</strong> DIDs in multiple secure locations</li>
+<li><strong>Verify</strong> DIDs before sharing or using</li>
+</ol>
+<h3 id="permission-management"><a class="header" href="#permission-management">Permission Management</a></h3>
+<ol>
+<li><strong>Document</strong> all issuer-delegate relationships</li>
+<li><strong>Regularly</strong> audit delegation status</li>
+<li><strong>Use</strong> proper DID methods for your use case</li>
+<li><strong>Implement</strong> multi-signature for important documents</li>
+</ol>
+<hr />
+<h2 id="support-information-1"><a class="header" href="#support-information-1">Support Information</a></h2>
+<p>When contacting support about document registry issues, provide:</p>
+<ol>
+<li>Complete document DID</li>
+<li>Original registration transaction hash</li>
+<li>Error message screenshot</li>
+<li>Storage link used</li>
+<li>Steps to reproduce the issue</li>
+<li>Any modifications made since registration</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="services-1"><a class="header" href="#services-1">Services</a></h1>
 <ul>
 <li><a href="./revenue/tokenomics.html">Tokenomics</a></li>
