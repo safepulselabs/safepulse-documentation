@@ -230,4 +230,4 @@ Continued use of the Platform constitutes acceptance of updated Terms.
 ## **15. Contact Information**
 
 For legal or administrative inquiries:
-**[info@safepulse.xyz](mailto:info@safepulse.xyz)**
+**[support@safepulse.xyz](mailto:support@safepulse.xyz)**

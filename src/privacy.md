@@ -217,4 +217,4 @@ Continued use constitutes acceptance of the updated policy.
 ## **16. Contact Information**
 
 For privacy questions or administrative matters:
-**[info@safepulse.xyz](mailto:info@safepulse.xyz)**
+**[support@safepulse.xyz](mailto:support@safepulse.xyz)**
