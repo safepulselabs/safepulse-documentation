@@ -1,6 +1,7 @@
 # Summary
 
 - [Introduction](./introduction.md)
+- [Test Environment](./test_env.md)
 - [Concepts](./concepts.md)
   - [DID](./concepts/did.md)
   - [Elysium Protocol](./concepts/elysium_protocol.md)

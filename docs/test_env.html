@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Concepts - SafePulse Docs</title>
+        <title>Test Environment - SafePulse Docs</title>
 
 
         <!-- Custom HTML head -->
@@ -166,24 +166,63 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="concepts"><a class="header" href="#concepts">Concepts</a></h1>
+                        <h1 id="test-environment"><a class="header" href="#test-environment">Test Environment</a></h1>
+<p>Most core protocol contracts are deployed on <strong>Ethereum Sepolia</strong> as a public test environment.</p>
+<h2 id="available-contracts-on-sepolia"><a class="header" href="#available-contracts-on-sepolia">Available Contracts on Sepolia</a></h2>
+<p>The following smart contracts are available for testing:</p>
 <ul>
-<li><a href="concepts/did.html">DID</a></li>
-<li><a href="concepts/elysium_protocol.html">Elysium Protocol</a></li>
-<li><a href="concepts/pulse_token.html">Pulse Token</a></li>
-<li><a href="concepts/elysianpulse_token.html">ElysianPulse Token</a></li>
-<li><a href="concepts/decentralized_storage.html">Decentralized Storage</a></li>
+<li><strong>Escrow</strong></li>
+<li><strong>Document Registry</strong></li>
+<li><strong>Credential Registry</strong></li>
+<li><strong>Pledge Contract</strong></li>
+<li><strong>Test PULSE Token</strong></li>
+</ul>
+<p>These contracts replicate the mainnet logic and allow users to test full protocol workflows before interacting with production deployments.</p>
+<hr />
+<h2 id="getting-sepolia-test-eth"><a class="header" href="#getting-sepolia-test-eth">Getting Sepolia Test ETH</a></h2>
+<p>To interact with the protocol, users need <strong>Sepolia ETH</strong> for gas fees.</p>
+<p>You can request free test ETH from the following faucet providers:</p>
+<ul>
+<li>
+<p>Google Cloud Web3 Faucet:
+<a href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia">https://cloud.google.com/application/web3/faucet/ethereum/sepolia</a></p>
+</li>
+<li>
+<p>QuickNode Sepolia Faucet:
+<a href="https://faucet.quicknode.com/ethereum/sepolia">https://faucet.quicknode.com/ethereum/sepolia</a></p>
+</li>
+<li>
+<p>Alchemy Sepolia Faucet:
+<a href="https://www.alchemy.com/faucets/ethereum-sepolia">https://www.alchemy.com/faucets/ethereum-sepolia</a></p>
+</li>
+<li>
+<p>Infura Sepolia Faucet:
+<a href="https://www.infura.io/faucet/sepolia">https://www.infura.io/faucet/sepolia</a></p>
+</li>
+</ul>
+<p>Submit your wallet address to receive test ETH.</p>
+<hr />
+<h2 id="how-to-test"><a class="header" href="#how-to-test">How to Test</a></h2>
+<p>Claim Sepolia test ETH from one of the faucet providers, then switch your wallet network to <strong>Ethereum Sepolia</strong> from the network options. Once connected to Sepolia, you can access the protocol frontend and interact with the deployed Escrow, Document Registry, Credential Registry, and Pledge contracts using the Test PULSE token.</p>
+<hr />
+<h2 id="important-notes"><a class="header" href="#important-notes">Important Notes</a></h2>
+<ul>
+<li>Sepolia tokens have <strong>no real value</strong></li>
+<li>Test PULSE token is only for testing purposes</li>
+<li>For buying Test PULSE, users <strong>do not need</strong> an ELYPS access token</li>
+<li>Always verify you are connected to Ethereum Sepolia before interacting</li>
+<li>Mainnet deployments require real assets</li>
 </ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="test_env.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="concepts/did.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="concepts.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -193,11 +232,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="test_env.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="concepts/did.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="concepts.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
