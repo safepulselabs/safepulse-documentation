@@ -1,6 +1,6 @@
 # **FAQ**
 
----
+
 
 ## **General Platform Questions**
 
@@ -34,7 +34,7 @@ SafePulse supports major stablecoins and tokens commonly used in business: **USD
 Yes, SafePulse currently has **two non-financial tokens**:
 
 * **ELYPS** – an access credential token
-* **PULSE** – an execution asset for agreements
+* **PULSE** – an execution asset
   No financial token is planned for launch.
 
 **10. Is SafePulse decentralized or partially centralized?**
@@ -73,8 +73,8 @@ Yes. Smart contract code may be upgraded to introduce improvements or fixes.
 
 However:
 
-* Users are **not forced** to upgrade
-* Upgrades are optional
+* Users are **not forced** to upgrade their deployed contracts
+* Upgrades are  for deployable contarcts
 * Deployed agreement states remain unaffected
 
 Users decide whether to adopt new versions of the contracts.
@@ -90,7 +90,7 @@ If a bug is detected or a new feature is requested:
 * Users may report issues directly
 * Improvements or fixes may be implemented in upgraded contract versions
 
-Because contracts are copyright-protected and not publicly verified, updates and security fixes are handled internally.
+Contracts are copyright-protected and not publicly verified, updates and security fixes will be handled internally.
 
 **18. What if I lose access to my wallet?**
 SafePulse cannot recover lost private keys, passphrases, or seed phrases. Users are **fully responsible for securely storing and backing up keys**.
@@ -184,7 +184,7 @@ Yes. SafePulse operates **globally, without mandatory KYC or jurisdictional rest
 ## **Identity & Privacy**
 
 **41. Do I need to reveal my identity?**
-No. SafePulse is **privacy-first**, and identity is optional.
+No. SafePulse is **privacy-first**, and personal identity approval is not required.
 
 **42. Can I stay anonymous?**
 Yes. Users may interact **pseudonymously**, using cryptographic proofs rather than personal data.
