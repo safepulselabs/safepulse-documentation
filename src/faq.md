@@ -147,10 +147,6 @@ SafePulse is **protocol-first, non-custodial, and on-chain**, so KYC and AML are
 
 Yes. Businesses can **participate in agreements as parties**, without acting as flow controllers. All transactions are transparent, verifiable, and non-custodial.
 
-**44. What is DID (Decentralized Identifier)?**
-
-A DID is a **unique, URL-like identifier** for sovereign entities in decentralized systems. In SafePulse, DIDs identify contracts, deposits, registries, and accounts, ensuring **secure, auditable, and abuse-resistant interactions**.
-
 ---
 
 ## **Payments & Transactions**
@@ -230,6 +226,10 @@ Yes. Users may interact **pseudonymously**, using cryptographic proofs rather th
 **43. What is a verifiable credential?**
 
 A verifiable credential is a **proof of authenticity** tied to documents, identity, or agreement actions, stored **on-chain without exposing personal data**.
+
+**44. What is DID (Decentralized Identifier)?**
+
+A DID is a **unique, URL-like identifier** for sovereign entities in decentralized systems. In SafePulse, DIDs identify contracts, deposits, registries, and accounts, ensuring **secure, auditable, and abuse-resistant interactions**.
 
 **45. How does SafePulse verify documents without storing them?**
 

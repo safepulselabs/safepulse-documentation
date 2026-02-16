@@ -1,6 +1,7 @@
 # Test Environment
 
 Most core protocol contracts are deployed on **Ethereum Sepolia** as a public test environment.
+Test environment is available on SafePulse Lite dapp: [https://app.safepulse.xyz](https://app.safepulse.xyz)
 
 ## Available Contracts on Sepolia
 
